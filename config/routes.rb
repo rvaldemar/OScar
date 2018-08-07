@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   post 'collaborations', to: 'collaborations#create', as: 'collaborations'
 
-  patch 'collaborations/:id', to: 'collaborations#update', as: 'collaboration'
+  patch 'collaborations/:id', to: 'collaborations#update'
 
 end
 
