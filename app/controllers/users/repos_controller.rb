@@ -1,4 +1,4 @@
-class User::ReposController < ApplicationController
+class Users::ReposController < ApplicationController
   def my_repos_index
   end
 
