@@ -32,5 +32,8 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-
+# omniauth - authorization for github login
 gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
+
+# api for easly manage github data requests
+gem "github_api"
