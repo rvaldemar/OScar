@@ -3,12 +3,16 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+
+
+  config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], scope: "user,repo,gist"
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'fda8140ba42d4cd97b62a54e1ef9a62f3d6668398827423e68981f64da3c3895f81b89d34d2e06e54d7d94083a2947da7701dfff2dea3491fdb5a5f085e0421a'
+  # config.secret_key = 'fda8140ba42d4cd97b62a54e1ef9a62f3nild6668398827423e68981f64da3c3895f81b89d34d2e06e54d7d94083a2947da7701dfff2dea3491fdb5a5f085e0421a'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -18,7 +22,9 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'ruivss@yahoo.com.br'
+  config.mailer_sender = 'EMAIL'
+
+
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
