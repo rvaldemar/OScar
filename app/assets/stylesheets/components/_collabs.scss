@@ -23,3 +23,30 @@
 .single-owner-wrapper .post-info {
   margin-left: 50px;
 }
+
+#new-post{
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(66, 66, 66, 0.9);
+  z-index: 10000;
+  text-align: center;
+}
+
+.active-new-post{
+  display: block!important;
+}
+
+.new-post-wrapper {
+  padding: 15px;
+  margin: 160px auto 0 auto;
+  color: white;
+}
+
+.new-post-buttons{
+  display: flex;
+  justify-content: space-around;
+}
