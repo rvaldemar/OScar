@@ -14,7 +14,7 @@
 <div class="container">
   <% @users.each do |user| %>
     <div class="row">
-        <%= render 'components/collab_list', user: user %>
+        <%= render 'components/collab_list', collab: user %>
     </div>
    <% end %>
 </div>
@@ -23,20 +23,3 @@
 
 
 <button type="button" class="btn btn-success btn-sm">Apply for Collaboration</button>
-
-
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="card">
-        <div class="card-category">@repo.name</div>
-        <div class="card-description">
-          <h2>Le Wagon Shanghai</h2>
-          <p>Very cool city, the best</p>
-        </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-        <a class="card-link" href="#" ></a>
-      </div>
-    </div>
-  </div>
-</div> -->
