@@ -3,6 +3,7 @@
   align-items: center;
   padding: 20px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
+  width: 200px;
 }
 .collab:last-child {
   border-bottom: none;
@@ -30,4 +31,13 @@
 
  p {
   margin: 6px 0;
+}
+
+.post-avatar{
+  width: 40px;
+  height: 40px;
+  background-color: blue;
+  margin: 5px;
+  border-radius: 20px;
+  background-size: cover;
 }
