@@ -4,5 +4,6 @@ class AddAvatarNameNicknameGithubReposToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :nickname, :text
     add_column :users, :github, :text
     add_column :users, :repos_url, :text
+    add_column :users, :avatar, :text
   end
 end

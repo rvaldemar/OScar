@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2018_08_07_181321) do
     t.text "nickname"
     t.text "github"
     t.text "repos_url"
+    t.text "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
