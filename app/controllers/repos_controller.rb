@@ -5,8 +5,8 @@ class ReposController < ApplicationController
   def show
     @repo = Repo.find(params[:id])
     collabs = @repo.collaborations
-    # @users = collabs.map(&:user)
-    @users = [User.last]
+    @users = collabs.map(&:user)
+    # @users = [User.last]
   end
 
   def create

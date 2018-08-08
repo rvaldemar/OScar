@@ -10,9 +10,17 @@
   </ul>
 </div>
 
-<% @users.each do |user| %>
-<%= render 'components/collab_list', user: user %>
-<% end %>
+
+<div class="container">
+  <% @users.each do |user| %>
+    <div class="row">
+        <%= render 'components/collab_list', user: user %>
+    </div>
+   <% end %>
+</div>
+
+
+
 
 <button type="button" class="btn btn-success btn-sm">Apply for Collaboration</button>
 
