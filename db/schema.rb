@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2018_08_07_181321) do
   create_table "repos", force: :cascade do |t|
     t.bigint "user_id"
     t.text "description"
+    t.text "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_repos_on_user_id"

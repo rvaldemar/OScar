@@ -37,3 +37,5 @@ gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 
 # api for easly manage github data requests
 gem "github_api"
+
+gem 'faker'
