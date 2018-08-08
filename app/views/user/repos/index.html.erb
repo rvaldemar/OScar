@@ -1,2 +1,7 @@
-<h1>User::Repos#index</h1>
-<p>Find me in app/views/user/repos/index.html.erb</p>
+<h1>My Repos</h1>
+
+<ul>
+  <% @repos.each do |repo| %>
+    <li> <%= repo.description %> </li>
+  <% end %>
+</ul>

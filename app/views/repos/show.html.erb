@@ -1,2 +1,23 @@
-<h1>Repos#show</h1>
-<p>Find me in app/views/repos/show.html.erb</p>
+<div class="repo-details">
+  <h1> <%= @repo.name %> </h1>
+  <h3>  <%= @repo.description %> </h3>
+
+  <h3>Owner details</h3>
+  <ul>
+    <li> Owner Name: <%= @repo.user.name %> </li>
+    <li> Owner Id: <%= @repo.user.uid %> </li>
+    <li> Owner Email: <%= @repo.user.email %> </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-category">Popular</div>
+  <div class="card-description">
+    <h2>Le Wagon Shanghai</h2>
+    <p>Very cool city, the best</p>
+  </div>
+  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <a class="card-link" href="#" ></a>
+</div>
+
+<button type="button" class="btn btn-success btn-sm">Apply for Collaboration</button>
