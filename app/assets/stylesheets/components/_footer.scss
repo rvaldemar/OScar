@@ -1,0 +1,28 @@
+.footer-wrapper{
+  display: flex;
+  justify-content: space-between;
+  background-color: $red;
+  color: $white;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.social{
+  font-size: 22px;
+  margin-left: 25px;
+}
+
+.social i{
+  margin: 0 5px;
+}
+
+.all-rights{
+  margin-right: 25px;
+}
+
+.all-rights p{
+  margin: 0;
+}
