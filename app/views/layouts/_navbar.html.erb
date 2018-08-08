@@ -4,7 +4,7 @@
 
   <div class="header-content">
     <ul class="header-navigation">
-      <li><a href="">home</a></li>
+      <li><%= link_to( "home", root_path) %></li>
       <% if !user_signed_in? %>
         <li><%= link_to( "sign in", user_github_omniauth_authorize_path) %></li>
       <% else %>
