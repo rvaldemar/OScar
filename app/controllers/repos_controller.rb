@@ -4,6 +4,8 @@ class ReposController < ApplicationController
 
   def show
     @repo = Repo.find(params[:id])
+    collabs = @repo.collaborations
+    @users = collabs.map(&:user)
   end
 
   def create

@@ -1,6 +1,6 @@
 <div class="repo-details">
   <h1> <%= @repo.name %> </h1>
-  <h3>  <%= @repo.description %> </h3>
+  <h3> <%= @repo.description %> </h3>
 
   <h3>Owner details</h3>
   <ul>
@@ -10,14 +10,25 @@
   </ul>
 </div>
 
-<div class="card">
-  <div class="card-category">Popular</div>
-  <div class="card-description">
-    <h2>Le Wagon Shanghai</h2>
-    <p>Very cool city, the best</p>
-  </div>
-  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-  <a class="card-link" href="#" ></a>
-</div>
+<% @users.each do |user| %>
+<%= render 'components/collab_list', user: user %>
+<% end %>
 
 <button type="button" class="btn btn-success btn-sm">Apply for Collaboration</button>
+
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="card">
+        <div class="card-category">@repo.name</div>
+        <div class="card-description">
+          <h2>Le Wagon Shanghai</h2>
+          <p>Very cool city, the best</p>
+        </div>
+        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+        <a class="card-link" href="#" ></a>
+      </div>
+    </div>
+  </div>
+</div> -->

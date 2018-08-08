@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :collaborations
   has_many :repos, through: :collaborations
 
   # Include default devise modules. Others available are:
