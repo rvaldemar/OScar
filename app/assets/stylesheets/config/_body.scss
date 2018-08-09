@@ -12,9 +12,20 @@ body {
   -o-transition: none!important;
   transition: none!important;
   border-bottom: 1px solid #f1f1f1!important;
+  margin-bottom: 15px!important;
 }
 
 .panel{
   border: none!important;
   box-shadow: none!important;
+}
+
+.panel-group{
+  margin-bottom: 0px!important;
+}
+
+.wrapper-main {
+  margin: 0 auto 0 auto;
+  width: 1200px;
+  border: 2px solid #f1f1f1;
 }
