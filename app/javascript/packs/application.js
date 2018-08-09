@@ -1,5 +1,7 @@
 import "bootstrap";
 
+import 'packs/addfirstrepo';
+
 const newPostButton = document.getElementById("btn-new-post");
 const newPostCancelButton = document.getElementById("btn-new-post-cancel");
 const newPostArea = document.getElementById("new-post");
