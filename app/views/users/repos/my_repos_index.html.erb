@@ -1,7 +1,7 @@
 <div class="wrapper-main">
   <% if @repos.empty? %>
-    <div id="new-post" class="top-margin">
-      <div class="new-post-wrapper">
+    <div id="first-repo" >
+      <div class="first-repo-wraper">
         <div class="form-group">
           <h1>Share your first repository!</h1>
         </div>
@@ -15,9 +15,9 @@
                 <input type="checkbox" name='<%= repo.name %>' value="o que quero receber">
                 <label for="<%= repo.name %>"><%= repo.name %></label>
 
-                <input class="input-hiden" type="text" name="name" value='<%= repo.name %>'><br>
+                <p class="first-input-hiden"> Name:</p><input class="first-input-hiden" type="text" name="name" value='<%= repo.name %>'><br>
 
-                <input class="input-hiden" type="text" name="description" value='<%= repo.description %>'><br>
+                <p class="first-input-hiden"> Description:</p><input class="first-input-hiden first-input-description" type="text" name="description" value='<%= repo.description %>'><br>
 
               </div>
 

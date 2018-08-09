@@ -2,8 +2,8 @@ const repos = document.querySelectorAll(".repo");
 
 
 repos.forEach((repo) => {
-  let checkbox = repo.querySelector(".top-margin input[type=checkbox]");
-  let inputs = repo.querySelectorAll(".top-margin input[type=text]");
+  let checkbox = repo.querySelector(".first-repo-wraper input[type=checkbox]");
+  let inputs = repo.querySelectorAll(".first-input-hiden");
 
   checkbox.addEventListener( 'change', function() {
     if(checkbox.checked) {
