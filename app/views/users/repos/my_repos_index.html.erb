@@ -6,10 +6,32 @@
           <h1>Share your first repository!</h1>
         </div>
         <div>
-          <%= simple_form_for @repo do |f| %>
-            <%= f.input :content %>
-            <%= f.submit "add a review", class: "btn btn-primary" %>
-          <% end %>
+          <form>
+            <input type="checkbox" name="um" value="o que quero receber">
+            <label for="um">1</label>
+
+
+
+            First name: <input type="text" name="fname" value='rui'><br>
+
+
+
+
+
+
+
+            <input type="checkbox" name="dois" value="o que quero receber">
+            <label for="dois">2</label>
+
+            Second name: <input type="text" name="sname" value='rui'><br>
+
+
+
+
+
+            <button type="submit">Subscribe</button>
+          </form>
+
         </div>
         <div class="new-post-buttons">
           <button type="button" class="btn btn-danger" id="btn-new-post-cancel">Nice!</button>
