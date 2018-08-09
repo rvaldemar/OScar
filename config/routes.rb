@@ -9,11 +9,11 @@ Rails.application.routes.draw do
 
   resources :repos, only: [:show]
 
-  post '/repos', to: 'users/repos#create', as: 'create_repo'
+  post '/repos', to: 'users/repos#create', as: 'repos'
   get '/repos/:id/edit', to:'user/repos#edit', as: 'edit_repo'
-  patch '/repos/:id/update', to: 'user/repos#update', as: 'update_repo'
-  put '/repos/:id/update', to: 'user/repos#update'
-  delete '/repos/:id/destroy', to: 'user/repos#destroy', as: 'destroy_repo'
+  patch '/repos/:id', to: 'user/repos#update'
+  put '/repos/:id', to: 'user/repos#update'
+  delete '/repos/:id', to: 'user/repos#destroy'
 
   scope ':username' do
     get 'my-repos', to: 'users/repos#my_repos_index', as: 'my_repos'
