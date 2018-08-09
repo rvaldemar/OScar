@@ -23,7 +23,10 @@
               </div>
               <div class="post-right">
                 <ul>
+                  <!--<% collabNumber = @collabs %> -->
+
                   <% collabNumber = repo.collaborations.length %>
+
 
                   <% if collabNumber == 0 %>
                     <li class='none'><h1><%= collabNumber %></h1></li>
@@ -39,7 +42,6 @@
 
           </div>
         </div>
-
     <% end %>
 
 </div>

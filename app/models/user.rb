@@ -1,3 +1,6 @@
+require 'json'
+require 'open-uri'
+
 class User < ApplicationRecord
   has_many :collaborations
   has_many :repos, through: :collaborations
@@ -22,6 +25,7 @@ def self.from_omniauth(auth)
     user.repos_url = auth[:extra].raw_info.repos_url
   end
 end
+ 
 # def create_user_repos
 #     url = u.repos_url
 #     repos_serialized = open(url).read
