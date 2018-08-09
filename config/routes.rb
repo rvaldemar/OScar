@@ -20,7 +20,8 @@ Rails.application.routes.draw do
     get 'my-collaborations', to: 'users/repos#my_collaborations_index', as: 'my_collaborations'
   end
 
-  delete 'collaborations/:repo_id/:user_id', to: 'collaborations#destroy', as: 'end_collaboration'
+  # delete 'collaborations/:repo_id/:user_id', to: 'collaborations#destroy', as: 'end_collaboration'
+  delete 'collaborations/:repo_id', to: 'collaborations#destroy', as: 'end_collaboration'
 
   post 'collaborations', to: 'collaborations#create', as: 'collaborations'
 

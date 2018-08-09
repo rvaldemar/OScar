@@ -22,10 +22,19 @@
           </div>
         </div>
         <div class="join-right">
-          <% if !user_signed_in? %>
-            <button type="button" class="btn btn-success btn-sm" id="btn-new-post" disabled>Apply for Collaboration</button>
-          <% else %>
-            <button type="button" class="btn btn-success btn-sm" id="btn-new-post">Apply for Collaboration</button>
+
+          <!-- Checks if the users array has been passed -->
+          <% if defined?(users) %>
+            <!-- Checks if the current user is part of the array of users. If yes, the user already submitted a collaboration request -->
+            <% if users.include? current_user %>
+              <p>Your application is still waiting for acceptance. For now is: <span class="low">Pending</span> </p>
+            <% else %>
+              <% if !user_signed_in? %>
+                <button type="button" class="btn btn-success btn-sm" id="btn-new-post" disabled>Apply for Collaboration</button>
+              <% else %>
+                <button type="button" class="btn btn-success btn-sm" id="btn-new-post">Apply for Collaboration</button>
+              <% end %>
+            <% end %>
           <% end %>
 
         </div>

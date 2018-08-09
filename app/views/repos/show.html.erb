@@ -17,14 +17,16 @@
 
   <%= render 'components/owner_card', repo: @repo %>
 
-  <%= render 'components/join-card' %>
+  <!-- Checks if current_user is owner or has any kind of collaboration (accepted or pending) -->
+  <% if current_user.id != @repo.user_id and !@users.include? current_user %>
+    <%= render 'components/join-card', users: @all_users %>
+  <% end %>
 
   <h4>Current collaborators for this repository:</h4>
 
   <% @users.each do |user| %>
-      <%= render 'components/collab_list', collab: user %>
+    <%= render 'components/collab_list', collab: user, repo: @repo %>
   <% end %>
-
 
 </div>
 

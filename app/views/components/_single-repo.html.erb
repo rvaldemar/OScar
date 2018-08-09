@@ -16,7 +16,7 @@
         </div>
         <div class="repo-right">
           <ul>
-            <% collabNumber = repo.collaborations.length %>
+            <% collabNumber = repo.collaborations.where(accepted: true).length %>
 
             <% if collabNumber == 0 %>
               <li class='none'><h1><%= collabNumber %></h1></li>
