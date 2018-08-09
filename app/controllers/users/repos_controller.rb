@@ -5,7 +5,7 @@ class Users::ReposController < ApplicationController
 
 
     url = current_user.repos_url
-    repos_serialized = open(url).read
+    repos_serialized = open(url + "?client_id=#{ENV['GITHUB_KEY']}&client_secret=#{ENV['GITHUB_SECRET']}").read
     repos = JSON.parse(repos_serialized)
 
     @new_repos = repos.map do |repo|

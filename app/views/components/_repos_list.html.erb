@@ -12,6 +12,9 @@
           </div>
           <div class="repo-description">
             <p><%= repo.description %></p>
+            <% if repo.collaborations.where(accepted: false).length > 0 %>
+              <p>You have pending requests to approve or reject.</p>
+            <% end %>
             <% if defined?(collab) %>
               <% if !collab.accepted %>
                 <p>Your application is still waiting for acceptance. For now is: <span class="low">Pending</span> </p>

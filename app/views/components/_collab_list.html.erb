@@ -14,13 +14,26 @@
             <%= collab.nickname %>
           </div>
         </div>
-        <% if collab == current_user %>
-          <div class="collaborators-right">
+
+        <div class="collaborators-right">
+          <!-- Allows that a user can leave a repo -->
+          <% if collab == current_user %>
             <div class="collaborators-leave">
-              <%= link_to 'Leave Collaboration', end_collaboration_path(repo_id: repo, user_id: current_user.id), method: :delete, :class => "btn btn-danger btn-sm" %>
+              <%= link_to 'Leave Collaboration', end_collaboration_path(repo_id: repo), method: :delete, :class => "btn btn-danger btn-sm" %>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+          <!-- If the pending variable has been defined it means that we have requests to approve -->
+          <% if defined? pending %>
+            <div class="btn">
+              <%= link_to 'Accept', confirm_collaboration_path(repo_id: repo, user_id: collab.id), method: :post, :class => "btn btn-success" %> |
+              <%= link_to 'Reject', end_collaboration_path(repo_id: repo, user_id: collab.id), method: :delete, :class => "btn btn-danger"%>
+            </div>
+          <% end %>
+          <!-- Allows that a repo owner can terminate a specific collaboration -->
+          <% if current_user.id == repo.user_id %>
+            <%= link_to 'Terminate Collaboration', end_collaboration_path(repo_id: repo, user_id: collab.id), method: :delete, :class => "btn btn-danger"%>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

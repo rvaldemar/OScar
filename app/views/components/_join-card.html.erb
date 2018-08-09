@@ -28,12 +28,12 @@
             <!-- Checks if the current user is part of the array of users. If yes, the user already submitted a collaboration request -->
             <% if users.include? current_user %>
               <p>Your application is still waiting for acceptance. For now is: <span class="low">Pending</span> </p>
+              <%= link_to 'Cancel Collaboration', end_collaboration_path(repo_id: repo, user_id: current_user.id), method: :delete, :class => "btn btn-danger btn-sm" %>
             <% else %>
               <% if !user_signed_in? %>
                 <button type="button" class="btn btn-success btn-sm" id="btn-new-post" disabled>Apply for Collaboration</button>
               <% else %>
-                <!-- <button type="button" class="btn btn-success btn-sm" id="btn-new-post">Apply for Collaboration</button> -->
-                <%= link_to 'Apply for Collaboration', collaborations_path(repo), method: :create, :class => "btn btn-success btn-sm", :id => "btn-new-post" %>
+                <%= link_to 'Apply for Collaboration', collaborations_path(repo), method: :create, :class => "btn btn-success btn-sm" %>
               <% end %>
             <% end %>
           <% end %>

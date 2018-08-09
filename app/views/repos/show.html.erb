@@ -22,11 +22,22 @@
     <%= render 'components/join-card', users: @all_users, repo: @repo %>
   <% end %>
 
+  <% if current_user.id == @repo.user_id and @all_collabs.where(accepted: false).length > 0 %>
+    <h4>Requests waiting to be processed</h4>
+    <% @pending_users.each do |user| %>
+      <%= render 'components/collab_list', collab: user, repo: @repo, pending: true %>
+    <% end %>
+  <% end %>
+
+  <br>
+
   <h4>Current collaborators for this repository:</h4>
 
   <% @users.each do |user| %>
     <%= render 'components/collab_list', collab: user, repo: @repo %>
   <% end %>
+
+
 
 </div>
 
