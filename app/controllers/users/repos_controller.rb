@@ -4,5 +4,7 @@ class Users::ReposController < ApplicationController
   end
 
   def my_collaborations_index
+    @collabs = current_user.collaborations
+    @collab_repos = @collabs.map(&:repo)
   end
 end
