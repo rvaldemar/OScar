@@ -1,0 +1,34 @@
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="repo-show-wrapper">
+        <div class="repo-left">
+        </div>
+        <div class="repo-info">
+          <div class="repo-name">
+            <h3>Repo:<%= repo.name %></h3>
+          </div>
+          <div class="repo-info">
+            <p>Description</p>
+            <p><%= repo.description %></p>
+          </div>
+        </div>
+        <div class="repo-right">
+          <ul>
+            <% collabNumber = repo.collaborations.length %>
+
+            <% if collabNumber == 0 %>
+              <li class='none'><h1><%= collabNumber %></h1></li>
+            <% elsif collabNumber > 3 %>
+              <li class='good'><h1><%= collabNumber %></h1></li>
+            <% else %>
+              <li class='low'><h1><%= collabNumber %></h1></li>
+            <% end %>
+            <li>Collaborators</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

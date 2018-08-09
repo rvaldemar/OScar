@@ -25,25 +25,3 @@
   display: inline-block;
   margin-right: 15px;
 }
-
-
-#logo{
-  flex: 1 0 70px;
-  width: 70px;
-  height: 70px;
-  background-color: $red;
-  display: flex;
-  margin: 25px;
-  border-radius: 35px;
-  background-size: cover;
-}
-
-#avatar{
-  flex: 1 0 70px;
-  width: 70px;
-  height: 70px;
-  display: flex;
-  margin: 25px;
-  border-radius: 35px;
-  background-size: cover;
-}

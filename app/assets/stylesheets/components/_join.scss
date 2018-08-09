@@ -1,24 +1,26 @@
-/*Repos*/
-
-.single-owner-wrapper{
+.join-wrapper{
   justify-content: space-between;
+  content-align: center;
   display: flex;
-  border-bottom: 2px solid #f1f1f1;
-  margin-bottom: 15px;
+  padding: 15px 0px;
 }
 
-.owner-left{
+.join-left{
   display: flex;
 }
 
-.owner-info{
+.join-right{
+  display: flex;
+}
+
+.join-info{
   display: flex;
   flex-direction: column;
   flex: 0 1 100%;
   margin-left: 50px;
 }
 
-.repo-content{
+.join-name{
   display: block;
   width: 100%;
 }

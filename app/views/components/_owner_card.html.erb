@@ -1,7 +1,19 @@
-<div class="owner">
-  <img class="avatar" src="<%= owner.avatar %>">
-  <div class="collab-name">
-    <h3><strong><%= owner.nickname %><strong></h3>
-    <p><%= owner.name %></p>
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="single-owner-wrapper">
+        <div class="owner-left">
+          <div class="small-avatar" style="background-image: linear-gradient(-45deg, rgba(150,150,150,0.3) 0%, rgba(56,53,48,0.3) 33%, rgba(77,72,61,0.3) 51%, rgba(56,53,48,0.3) 93%, rgba(66,63,54,0.3) 100%), url(<%= asset_path('monkey_3.jpg')%>);">
+          </div>
+        </div>
+        <div class="owner-info">
+          <h4>Owner</h4>
+          <div class="owner-content">
+            <p>Owner name: <%= repo.user.name %></p>
+            <p>Contact <%= repo.user.name %> on <a href='mailto:<%=repo.user.email %>'> <%= repo.user.email %></a></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

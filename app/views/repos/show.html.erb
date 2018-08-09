@@ -12,95 +12,19 @@
 <div class="wrapper-main">
     <!-- Search form -->
   <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-    <% #raise %>
-      <div class="panel-group">
-        <div class="panel panel-default">
-          <div class="panel-body">
 
-            <div class="single-repo-wrapper">
-              <div class="post-left">
+  <%= render 'components/single-repo', repo: @repo %>
 
-              </div>
-              <div class="post-info">
-                <div class="post-title">
-                  <h3>Repo:<%= @repo.name %></h3>
-                </div>
-                <div class="post-tags">
-                  <p>Description</p>
-                  <p><%= @repo.description %></p>
-                </div>
-              </div>
-              <div class="post-right">
-                <ul>
-                  <% collabNumber = @repo.collaborations.length %>
+  <%= render 'components/owner_card', repo: @repo %>
 
-                  <% if collabNumber == 0 %>
-                    <li class='none'><h1><%= collabNumber %></h1></li>
-                  <% elsif collabNumber > 3 %>
-                    <li class='good'><h1><%= collabNumber %></h1></li>
-                  <% else %>
-                    <li class='low'><h1><%= collabNumber %></h1></li>
-                  <% end %>
-                  <li>Collaborators</li>
-                </ul>
-              </div>
-            </div>
+  <%= render 'components/join-card' %>
 
-            <div class="single-owner-wrapper">
-              <div class="post-left">
-                <div class="post-avatar" style="background-image: linear-gradient(-45deg, rgba(150,150,150,0.3) 0%, rgba(56,53,48,0.3) 33%, rgba(77,72,61,0.3) 51%, rgba(56,53,48,0.3) 93%, rgba(66,63,54,0.3) 100%), url(<%= asset_path('monkey_3.jpg')%>);">
-                </div>
-              </div>
-              <div class="post-info">
-                <div class="post-title">
-                  <h4>Owner</h4>
-                </div>
-                <div class="repo-tags">
-                  <p><%= @repo.user.name %></p>
-                  <p><%= @repo.user.email %></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <h4>Current collaborators for this repository:</h4>
 
-        <div class="panel-group">
-          <div class="panel panel-default">
-            <div class="panel-body">
+  <% @users.each do |user| %>
+      <%= render 'components/collab_list', collab: user %>
+  <% end %>
 
-              <div class="single-owner-wrapper">
-                <div class="post-left">
-                   <% if !user_signed_in? %>
-                      <div class="post-avatar" style="background-image: linear-gradient(-45deg, rgba(150,150,150,0.3) 0%, rgba(56,53,48,0.3) 33%, rgba(77,72,61,0.3) 51%, rgba(56,53,48,0.3) 93%, rgba(66,63,54,0.3) 100%), url(<%= asset_path('monkey_3.jpg')%>);">
-                      </div>
-                    <% else %>
-                      <div class="post-avatar" style="background-image: linear-gradient(-45deg, rgba(150,150,150,0.3) 0%, rgba(56,53,48,0.3) 33%, rgba(77,72,61,0.3) 51%, rgba(56,53,48,0.3) 93%, rgba(66,63,54,0.3) 100%), url(<%= current_user.avatar %>);">
-                      </div>
-                    <% end %>
-                </div>
-                <div class="post-info">
-                  <div class="post-title">
-                    <% if !user_signed_in? %>
-                      <h4>Future friend</h4>
-                    <% else %>
-                      <h4><%= current_user.name %></h4>
-                    <% end %>
-                  </div>
-                  <div>
-                    <button type="button" class="btn btn-success btn-sm" id="btn-new-post">Apply for Collaboration</button>
-                  </div>
-                </div>
-                <div class="post-right">
-                </div>
-              </div>
 
-            </div>
-          </div>
-          <% @users.each do |user| %>
-              <%= render 'components/collab_list', collab: user %>
-          <% end %>
-
-        </div>
 </div>
 

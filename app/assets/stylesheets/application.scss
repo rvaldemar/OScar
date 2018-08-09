@@ -12,10 +12,16 @@
 
 // Your CSS partials
 @import "layouts/index";
-@import "components/index";
 @import "pages/index";
 @import "components/footer";
+
+
+// Css components
+@import "components/navbar";
 @import "components/repos-list";
+@import "components/collaborators-list";
+@import "components/images";
+@import "components/join";
 
 // Show
   // Div collabs
