@@ -6,21 +6,24 @@
           <h1>Share your first repository!</h1>
         </div>
         <div>
-          <form>
+          <form id="first" action=<%= repos_path %> method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
+            <% index = 0 %>
             <% @new_repos.each do |repo| %>
 
               <div class="repo">
-
-                <input type="checkbox" name='<%= repo.name %>' value="o que quero receber">
+                <input type="checkbox" name=<%="checkbox_#{index}"%> value='true'>
                 <label for="<%= repo.name %>"><%= repo.name %></label>
 
-                <p class="first-input-hiden"> Name:</p><input class="first-input-hiden" type="text" name="name" value='<%= repo.name %>'><br>
+                <p class="first-input-hiden"> Name:</p><input class="first-input-hiden" type="text" name=<%="name_#{index}"%> value='<%= repo.name %>'><br>
 
-                <p class="first-input-hiden"> Description:</p><input class="first-input-hiden first-input-description" type="text" name="description" value='<%= repo.description %>'><br>
+                <p class="first-input-hiden"> Description:</p>
 
+                <textarea class="first-input-hiden first-input-description" name=<%="description_#{index}"%> form_id="first" rows="4" cols="50"><%= repo.description %>
+                </textarea><br>
               </div>
-
+              <%  index += 1 %>
             <% end %>
 
             <button type="submit">Subscribe</button>
