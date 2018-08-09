@@ -8,12 +8,12 @@
         <div>
           <form>
 
-            <% @new_repos.each_with_index do |repo, i| %>
+            <% @new_repos.each do |repo| %>
 
               <div class="repo">
 
-                <input type="checkbox" name='<%= i %>' value="o que quero receber">
-                <label for="<%= i %>"><%= repo.name %></label>
+                <input type="checkbox" name='<%= repo.name %>' value="o que quero receber">
+                <label for="<%= repo.name %>"><%= repo.name %></label>
 
                 <input class="input-hiden" type="text" name="name" value='<%= repo.name %>'><br>
 

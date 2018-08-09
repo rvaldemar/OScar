@@ -4,12 +4,19 @@ class Users::ReposController < ApplicationController
     @repo = Repo.new
 
 
+    url = current_user.repos_url
+    repos_serialized = open(url).read
+    repos = JSON.parse(repos_serialized)
+
+    @new_repos = repos.map do |repo|
+      repository = Repo.new()
+      repository.name = repo['name']
+      repository.description = repo['description']
+      repository
+    end
 
 
-
-
-
-
+  end
 
 
 
