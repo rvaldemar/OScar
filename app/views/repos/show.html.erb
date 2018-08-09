@@ -24,10 +24,9 @@
 
   <h4>Current collaborators for this repository:</h4>
 
-    <% @users.each do |user| %>
-      <%= render 'components/collab_list', collab: user %>
-    <% end %>
-
+  <% @users.each do |user| %>
+    <%= render 'components/collab_list', collab: user %>
+  <% end %>
 
 </div>
 

@@ -1,7 +1,9 @@
 <div class="wrapper-main">
     <!-- Search form -->
   <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-    <% @repos.each do |repo|%>
-      <%= render 'components/repos_list', repo: repo %>
-    <% end %>
+
+  <% @repos.each do |repo|%>
+    <%= render 'components/repos_list', repo: repo %>
+  <% end %>
+
 </div>
