@@ -1,24 +1,27 @@
-/*Repos*/
-
-.single-owner-wrapper{
+.collaborators-wrapper{
   justify-content: space-between;
   display: flex;
   border-bottom: 2px solid #f1f1f1;
-  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
-.owner-left{
+.collaborators:last-child {
+  border-bottom: none;
+}
+
+.collaborators-left{
   display: flex;
 }
 
-.owner-info{
+.collaborators-info{
   display: flex;
   flex-direction: column;
   flex: 0 1 100%;
   margin-left: 50px;
 }
 
-.repo-content{
+.collaborators-name{
   display: block;
   width: 100%;
 }
+
