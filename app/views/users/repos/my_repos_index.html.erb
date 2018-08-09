@@ -7,27 +7,21 @@
         </div>
         <div>
           <form>
-            <input type="checkbox" name="um" value="o que quero receber">
-            <label for="um">1</label>
 
+            <% @new_repos.each_with_index do |repo, i| %>
 
+              <div class="repo">
 
-            First name: <input type="text" name="fname" value='rui'><br>
+                <input type="checkbox" name='<%= i %>' value="o que quero receber">
+                <label for="<%= i %>"><%= repo.name %></label>
 
+                <input class="input-hiden" type="text" name="name" value='<%= repo.name %>'><br>
 
+                <input class="input-hiden" type="text" name="description" value='<%= repo.description %>'><br>
 
+              </div>
 
-
-
-
-            <input type="checkbox" name="dois" value="o que quero receber">
-            <label for="dois">2</label>
-
-            Second name: <input type="text" name="sname" value='rui'><br>
-
-
-
-
+            <% end %>
 
             <button type="submit">Subscribe</button>
           </form>

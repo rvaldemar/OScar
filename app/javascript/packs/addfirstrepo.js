@@ -1,14 +1,20 @@
-const checkboxs = document.querySelectorAll(".top-margin input[type=checkbox]");
-
-const inputs = document.querySelectorAll(".top-margin input[type=text]");
+const repos = document.querySelectorAll(".repo");
 
 
-checkboxs.forEach((checkbox) => {
+repos.forEach((repo) => {
+  let checkbox = repo.querySelector(".top-margin input[type=checkbox]");
+  let inputs = repo.querySelectorAll(".top-margin input[type=text]");
+
   checkbox.addEventListener( 'change', function() {
-    if(this.checked) {
-        // Checkbox is checked..
+    if(checkbox.checked) {
+        inputs.forEach((input) => {
+          input.classList.add("input-show");
+        })
     } else {
-        // Checkbox is not checked..
+        inputs.forEach((input) => {
+          input.classList.remove("input-show");
+        })
     }
   })
-};
+})
+
