@@ -32,7 +32,8 @@
               <% if !user_signed_in? %>
                 <button type="button" class="btn btn-success btn-sm" id="btn-new-post" disabled>Apply for Collaboration</button>
               <% else %>
-                <button type="button" class="btn btn-success btn-sm" id="btn-new-post">Apply for Collaboration</button>
+                <!-- <button type="button" class="btn btn-success btn-sm" id="btn-new-post">Apply for Collaboration</button> -->
+                <%= link_to 'Apply for Collaboration', collaborations_path(repo), method: :create, :class => "btn btn-success btn-sm", :id => "btn-new-post" %>
               <% end %>
             <% end %>
           <% end %>

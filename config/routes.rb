@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   # delete 'collaborations/:repo_id/:user_id', to: 'collaborations#destroy', as: 'end_collaboration'
   delete 'collaborations/:repo_id', to: 'collaborations#destroy', as: 'end_collaboration'
 
-  post 'collaborations', to: 'collaborations#create', as: 'collaborations'
+  # post 'collaborations', to: 'collaborations#create', as: 'collaborations'
+  post 'collaborations/:repo_id', to: 'collaborations#create', as: 'collaborations'
 
   patch 'collaborations/:id', to: 'collaborations#update'
 
