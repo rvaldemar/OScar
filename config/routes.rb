@@ -5,14 +5,15 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
 
-
-
-
-
-
   root to: 'repos#index'
 
-  resources :repos, except: [:index, :new]
+  resources :repos, only: [:show]
+
+  post '/repos', to: 'users/repos#create', as: 'create_repo'
+  get '/repos/:id/edit', to:'user/repos#edit', as: 'edit_repo'
+  patch '/repos/:id', to: 'user/repos#update', as: 'update_repo'
+  put '/repos/:id', to: 'user/repos#update', as: 'update_repo'
+  delete '/repos/:id', to: 'user/repos#destroy', as: 'destroy_repo'
 
   scope ':username' do
     get 'my-repos', to: 'users/repos#my_repos_index', as: 'my_repos'

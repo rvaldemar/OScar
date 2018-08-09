@@ -8,13 +8,4 @@ class ReposController < ApplicationController
     collabs = @repo.collaborations
     @users = collabs.map(&:user)
   end
-
-  def create
-  end
-
-  def update
-  end
-
-  def destroy
-  end
 end

@@ -5,4 +5,13 @@ class Users::ReposController < ApplicationController
 
   def my_collaborations_index
   end
+
+  def create
+  end
+
+  def update
+  end
+
+  def destroy
+  end
 end
