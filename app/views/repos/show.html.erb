@@ -19,7 +19,7 @@
 
   <!-- Checks if current_user is owner or has any kind of collaboration (accepted or pending) -->
   <% if current_user.id != @repo.user_id and !@users.include? current_user %>
-    <%= render 'components/join-card', users: @all_users %>
+    <%= render 'components/join-card', users: @all_users, repo: @repo %>
   <% end %>
 
   <h4>Current collaborators for this repository:</h4>
