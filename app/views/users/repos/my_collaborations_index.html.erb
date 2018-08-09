@@ -2,8 +2,7 @@
     <!-- Search form -->
   <input class="form-control" type="text" placeholder="Search" aria-label="Search">
 
-    <% @repos.each do |repo|%>
-    <% #raise %>
+    <% @collabs.each do |collab|%>
       <div class="panel-group">
         <div class="panel panel-default">
           <div class="panel-body">
@@ -15,15 +14,21 @@
               </div>
               <div class="post-info">
                 <div class="post-title">
-                  <h3><%= link_to( repo.name, repo_path(repo.id)) %></h3>
+                  <h3><%= link_to( collab.repo.name, repo_path(collab.repo.id)) %></h3>
                 </div>
                 <div class="post-tags">
-                  <p><%= repo.description %></p>
+                  <p><%= collab.repo.description %></p>
                 </div>
+                <% if !collab.accepted %>
+                  <div class="post-tags">
+                    <p>Your application is still waiting for acceptance. For now is: <span class="low">Pending</span> </p>
+                  </div>
+                <% end %>
               </div>
               <div class="post-right">
                 <ul>
-                  <% collabNumber = repo.collaborations.where(accepted: true).length %>
+                  <% collabNumber = collab.repo.collaborations.where(accepted: true).length %>
+
 
                   <% if collabNumber == 0 %>
                     <li class='none'><h1><%= collabNumber %></h1></li>
