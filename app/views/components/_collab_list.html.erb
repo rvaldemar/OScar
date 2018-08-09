@@ -30,7 +30,7 @@
             </div>
           <% end %>
           <!-- Allows that a repo owner can terminate a specific collaboration -->
-          <% if current_user.id == repo.user_id %>
+          <% if current_user.id == repo.user_id and !defined? pending %>
             <%= link_to 'Terminate Collaboration', end_collaboration_path(repo_id: repo, user_id: collab.id), method: :delete, :class => "btn btn-danger"%>
           <% end %>
         </div>
