@@ -39,10 +39,21 @@
 .repo-description{
   display: block;
   width: 100%;
+  color: $gray;
 }
 
 .repo-right ul{
   list-style: none;
   color: #666;
+}
+
+.collaborators-inline-list{
+  list-style: none;
+  padding-left: 0;
+  color: $gray;
+}
+
+.collaborators-inline-list li{
+  display: inline-block;
 }
 
