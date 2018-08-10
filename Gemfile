@@ -41,3 +41,5 @@ gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 gem "github_api"
 
 gem 'faker'
+
+gem 'pg_search'

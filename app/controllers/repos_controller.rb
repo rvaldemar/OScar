@@ -1,6 +1,12 @@
 class ReposController < ApplicationController
   def index
-    @repos = Repo.all
+    @search_results = false
+    if params[:query].present?
+      @search_results = true
+      @collaborations = Collaboration.global_search(params[:query])
+    else
+      @repos = Repo.all
+    end
   end
 
   def show

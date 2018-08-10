@@ -8,30 +8,28 @@
         </div>
         <div class="repo-info">
           <div class="repo-name">
-            <h3><%= link_to( repo.name, repo_path(repo.id)) %></h3>
+            <h3><%= link_to( collaboration.repo.name, repo_path(collaboration.repo.id)) %></h3>
           </div>
           <div class="repo-description">
-            <p><%= repo.description %></p>
-            <p><strong>Owner:</strong> <%= repo.user.name %></p>
+            <p><%= collaboration.repo.description %></p>
+            <p><strong>Owner: </strong><%= collaboration.repo.user.name %></p>
             <ul class="collaborators-inline-list">
               <li><strong>Collaborators: </strong></li>
-
-              <% repo.collaborations.each_with_index do |collaboration, index| %>
-                <% if index ==  repo.collaborations.length - 2 %>
+              <% collaboration.repo.collaborations.each_with_index do |collaboration, index| %>
+                <% if index ==  collaboration.repo.collaborations.length - 2 %>
                   <li><%=collaboration.user.name %> and </li>
-                <% elsif index == repo.collaborations.length - 1 %>
+                <% elsif index == collaboration.repo.collaborations.length - 1 %>
                   <li><%=collaboration.user.name %>. </li>
                 <% else %>
                   <li><%=collaboration.user.name %>, </li>
                 <% end %>
               <% end %>
             </ul>
-
           </div>
         </div>
         <div class="repo-right">
           <ul>
-            <% collabNumber = repo.collaborations.length %>
+            <% collabNumber = collaboration.repo.collaborations.length %>
             <% if collabNumber == 0 %>
               <li class='none'><h1><%= collabNumber %></h1></li>
             <% elsif collabNumber > 3 %>
