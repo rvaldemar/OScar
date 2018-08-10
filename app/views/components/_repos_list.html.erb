@@ -12,8 +12,10 @@
           </div>
           <div class="repo-description">
             <p><%= repo.description %></p>
-            <% if repo.collaborations.where(accepted: false).length > 0 and repo.user_id == current_user.id %>
-              <p>You have pending requests to approve or reject.</p>
+            <% if user_signed_in? %>
+              <% if repo.collaborations.where(accepted: false).length > 0 and repo.user_id == current_user.id %>
+                <p>You have pending requests to approve or reject.</p>
+              <% end %>
             <% end %>
             <% if defined?(collab) %>
               <% if !collab.accepted %>
