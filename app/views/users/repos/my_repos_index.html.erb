@@ -1,49 +1,9 @@
 <div class="wrapper-main">
-
-    <!-- Search form -->
   <%= render 'components/search-bar' %>
-
-  <% if @repos.empty? %>
-    <div id="first-repo" >
-      <div class="first-repo-wraper">
-        <div class="form-group">
-          <h1>Share your first repository!</h1>
-        </div>
-        <div>
-          <form>
-
-
-            <% @new_repos.each do |repo| %>
-
-              <div class="repo">
-
-                <input type="checkbox" name='<%= repo.name %>' value="o que quero receber">
-                <label for="<%= repo.name %>"><%= repo.name %></label>
-
-                <p class="first-input-hiden"> Name:</p><input class="first-input-hiden" type="text" name="name" value='<%= repo.name %>'><br>
-
-                <p class="first-input-hiden"> Description:</p><input class="first-input-hiden first-input-description" type="text" name="description" value='<%= repo.description %>'><br>
-
-              </div>
-
-            <% end %>
-
-            <button type="submit">Subscribe</button>
-          </form>
-
-        </div>
-        <div class="new-post-buttons">
-          <button type="button" class="btn btn-danger" id="btn-new-post-cancel">Nice!</button>
-        </div>
-      </div>
-    </div>
-
-  <% else %>
     <!-- Search form -->
   <input class="form-control" type="text" placeholder="Search" aria-label="Search">
 
   <% @repos.each do |repo|%>
     <%= render 'components/repos_list', repo: repo %>
   <% end %>
-<% end %>
 </div>
