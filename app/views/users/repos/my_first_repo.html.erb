@@ -9,14 +9,14 @@
 
         <% @new_repos.each_with_index do |repo, index| %>
           <div class="repo">
-            <input type="checkbox" name=<%="checkbox_#{index}"%> value='true'>
+            <input type="checkbox" class="form-check-input" name=<%="checkbox_#{index}"%> value='true'>
             <label for="<%= repo.name %>"><%= repo.name %></label>
 
-            <p class="first-input-hiden"> Name:</p><input class="first-input-hiden" type="text" name=<%="name_#{index}"%> value='<%= repo.name %>'><br>
+            <p class="first-input-hiden"> Name:</p><input class="first-input-hiden form-control" type="text" name=<%="name_#{index}"%> value='<%= repo.name %>'><br>
 
             <p class="first-input-hiden"> Description:</p>
 
-            <textarea class="first-input-hiden first-input-description" name=<%="description_#{index}"%> form_id="first" rows="4" cols="50"><%= repo.description %>
+            <textarea class="first-input-hiden first-input-description form-control" name=<%="description_#{index}"%> form_id="first" rows="4" cols="50"><%= repo.description %>
             </textarea><br>
           </div>
         <% end %>

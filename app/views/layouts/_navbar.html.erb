@@ -1,10 +1,10 @@
 <div class="header">
-  <a href=<%= home_path %>><div id="logo" style="background-image: url(<%= asset_path('logo.png')%>);">
+  <a href=<%= homepage_path %>><div id="logo" style="background-image: url(<%= asset_path('logo.png')%>);">
   </div></a>
 
   <div class="header-content">
     <ul class="header-navigation">
-      <li><%= link_to( "home", root_path) %></li>
+      <li><%= link_to( "home", homepage_path) %></li>
       <% if !user_signed_in? %>
         <li><%= link_to( "sign in", user_github_omniauth_authorize_path) %></li>
       <% else %>
