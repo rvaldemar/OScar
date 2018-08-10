@@ -16,12 +16,14 @@
         </div>
 
         <div class="collaborators-right">
+
           <!-- Allows that a user can leave a repo -->
           <% if collab == current_user %>
             <div class="collaborators-leave">
-              <%= link_to 'Leave Collaboration', end_collaboration_path(repo_id: repo), method: :delete, data: { confirm: "Are you sure you want to leave this collaboration?" }, :class => "btn btn-danger btn-sm" %>
+              <%= render 'components/popup', repo_id: repo, message: "Leave Collaboration" %>
             </div>
           <% end %>
+
           <!-- If the pending variable has been defined it means that we have requests to approve -->
           <% if defined? pending %>
             <div class="btn">
@@ -29,10 +31,11 @@
               <%= link_to 'Reject', end_collaboration_path(repo_id: repo, user_id: collab.id), method: :delete, :class => "btn btn-danger"%>
             </div>
           <% end %>
+
           <!-- Allows that a repo owner can terminate a specific collaboration -->
           <% if user_signed_in? %>
             <% if current_user.id == repo.user_id and !defined? pending %>
-              <%= link_to 'Terminate Collaboration', end_collaboration_path(repo_id: repo, user_id: collab.id), method: :delete, data: { confirm: "Are you sure you want to terminate collaboration?" }, :class => "btn btn-danger" %>
+              <%= render 'components/popup', repo_id: repo, collab: collab, message: "Terminate Collaboration" %>
             <% end %>
           <% end %>
         </div>

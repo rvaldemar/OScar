@@ -28,7 +28,7 @@
             <!-- Checks if the current user is part of the array of users. If yes, the user already submitted a collaboration request -->
             <% if users.include? current_user %>
               <p>Your application is still waiting for acceptance. For now is: <span class="low">Pending</span> </p>
-              <%= link_to 'Cancel Request', end_collaboration_path(repo_id: repo, user_id: current_user.id), method: :delete, data: { confirm: "Are you sure you want to cancel the application request?" }, :class => "btn btn-danger btn-sm" %>
+              <%= render 'components/popup', repo_id: repo, message: "Cancel Request" %>
             <% else %>
               <% if !user_signed_in? %>
                 <button type="button" class="btn btn-success btn-sm" id="btn-new-post" disabled>Apply for Collaboration</button>
