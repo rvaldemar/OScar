@@ -1,7 +1,8 @@
 <div class="wrapper-main">
   <%= render 'components/search-bar' %>
     <!-- Search form -->
-  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+
+  <%= link_to 'Add repositories', add_repos_path, :class => "btn btn-success" %>
 
   <% @repos.each do |repo|%>
     <%= render 'components/repos_list', repo: repo %>

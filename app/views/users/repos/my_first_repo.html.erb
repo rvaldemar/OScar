@@ -8,7 +8,6 @@
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
         <% @new_repos.each_with_index do |repo, index| %>
-
           <div class="repo">
             <input type="checkbox" name=<%="checkbox_#{index}"%> value='true'>
             <label for="<%= repo.name %>"><%= repo.name %></label>
@@ -20,7 +19,6 @@
             <textarea class="first-input-hiden first-input-description" name=<%="description_#{index}"%> form_id="first" rows="4" cols="50"><%= repo.description %>
             </textarea><br>
           </div>
-          <%  index += 1 %>
         <% end %>
 
         <button type="submit">Subscribe</button>
