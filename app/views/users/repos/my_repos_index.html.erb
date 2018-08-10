@@ -1,4 +1,8 @@
 <div class="wrapper-main">
+
+    <!-- Search form -->
+  <%= render 'components/search-bar' %>
+
   <% if @repos.empty? %>
     <div id="first-repo" >
       <div class="first-repo-wraper">
@@ -7,6 +11,7 @@
         </div>
         <div>
           <form>
+
 
             <% @new_repos.each do |repo| %>
 
