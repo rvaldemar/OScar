@@ -8,7 +8,7 @@
         </div>
         <div class="collaborators-info">
           <div class="collaborators-name">
-            <h4><%= collab.name %></h4>
+            <h4><%= link_to collab.name, collab.github, target: "_blank" %></h4>
           </div>
           <div>
             <%= collab.nickname %>
