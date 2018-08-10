@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get 'add_repos', to: 'users/repos#add_repo', as: 'add_repos'
 
+
   scope ':username' do
     get 'my-repos', to: 'users/repos#my_repos_index', as: 'my_repos'
     get 'my-collaborations', to: 'users/repos#my_collaborations_index', as: 'my_collaborations'
@@ -30,6 +31,8 @@ Rails.application.routes.draw do
   post 'collaborations/:repo_id', to: 'collaborations#create', as: 'collaborations'
 
   post 'collaborations/:repo_id/:user_id', to: 'collaborations#update', as: 'confirm_collaboration'
+
+
 
 end
 
