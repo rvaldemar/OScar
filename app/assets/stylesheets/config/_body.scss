@@ -27,5 +27,20 @@ body {
 .wrapper-main {
   margin: 0 auto 0 auto;
   width: 1200px;
-  border: 2px solid #f1f1f1;
+}
+
+.repo {
+  border-bottom: 2px solid #f1f1f1;
+  margin: 25px 0 25px 0;
+  padding: 20px;
+  background-color: white;
+}
+
+.repo .form-control{
+  border: 2px solid #f1f1f1!important;
+  border-radius: 2px!important;
+}
+
+.form-check-input{
+  margin-right: 10px!important;
 }

@@ -1,0 +1,15 @@
+.banner-main{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+  height: 100vh;
+  margin: -160px 0 20px 0;
+  background-size: cover;
+  text-align: center;
+  color: $light;
+}
+
+.banner-content h1{
+  font-size: 5em;
+}

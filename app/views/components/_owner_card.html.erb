@@ -9,7 +9,9 @@
         <div class="owner-info">
           <h4>Owner</h4>
           <div class="owner-content">
-            <p>Owner name: <%= link_to repo.user.name, repo.user.github, target: "_blank" %></p>
+
+            <p><strong>Owner name:</strong> <%= link_to repo.user.name, repo.user.github, target: "_blank" %></p>
+
             <p>Contact <%= repo.user.name %> on <a href='mailto:<%=repo.user.email %>'> <%= repo.user.email %></a></p>
           </div>
         </div>
