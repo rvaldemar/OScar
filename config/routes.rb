@@ -9,16 +9,18 @@ Rails.application.routes.draw do
 
   resources :repos, only: [:show]
 
-  post '/repos', to: 'users/repos#create', as: 'repos'
-  get '/repos/:id/edit', to:'user/repos#edit', as: 'edit_repo'
-  patch '/repos/:id', to: 'user/repos#update'
-  put '/repos/:id', to: 'user/repos#update'
-  delete '/repos/:id', to: 'user/repos#destroy'
+  post 'repos', to: 'users/repos#create', as: 'repos'
+  get 'repos/:id/edit', to:'users/repos#edit', as: 'edit_repo'
+  patch 'repos/:id', to: 'users/repos#update'
+  put 'repos/:id', to: 'users/repos#update'
+  delete 'repos/:id', to: 'users/repos#destroy'
 
-  scope '/:username' do
-    get '/my-repos', to: 'users/repos#my_repos_index', as: 'my_repos'
-    get '/my-collaborations', to: 'users/repos#my_collaborations_index', as: 'my_collaborations'
-    post '/my-first-repo', to: 'users/repos#my_first_repo', as: 'my_first_repo'
+  get 'add-repos', to: 'repos#add_repo', as: 'add_repos'
+
+  scope ':username' do
+    get 'my-repos', to: 'users/repos#my_repos_index', as: 'my_repos'
+    get 'my-collaborations', to: 'users/repos#my_collaborations_index', as: 'my_collaborations'
+    post 'my-first-repo', to: 'users/repos#my_first_repo', as: 'my_first_repo'
   end
 
   # delete 'collaborations/:repo_id/:user_id', to: 'collaborations#destroy', as: 'end_collaboration'
@@ -28,6 +30,8 @@ Rails.application.routes.draw do
   post 'collaborations/:repo_id', to: 'collaborations#create', as: 'collaborations'
 
   post 'collaborations/:repo_id/:user_id', to: 'collaborations#update', as: 'confirm_collaboration'
+
+
 
 end
 

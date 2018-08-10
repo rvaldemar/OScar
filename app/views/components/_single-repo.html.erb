@@ -7,10 +7,9 @@
         </div>
         <div class="repo-info">
           <div class="repo-name">
-
           </div>
           <div class="repo-info">
-            <h3 class='repo-main-title'>Repo: <%= repo.name %></h3>
+            <h3 class='repo-main-title'>Repo: <%= repo.name.capitalize %></h3>
             <p><strong>Description</strong></p>
             <p><%= repo.description %></p>
           </div>
@@ -28,6 +27,11 @@
             <% end %>
             <li>Collaborators</li>
           </ul>
+        </div>
+        <div>
+          <% if current_user == repo.user %>
+            <%= render 'components/popup_unshare', repo: repo, message: "Unshare" %>
+          <% end %>
         </div>
       </div>
     </div>
