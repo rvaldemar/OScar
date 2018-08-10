@@ -30,15 +30,16 @@ class Users::ReposController < ApplicationController
     repos_serialized = open(url + "?client_id=#{ENV['GITHUB_KEY']}&client_secret=#{ENV['GITHUB_SECRET']}").read
     repos = JSON.parse(repos_serialized)
 
-    @new_repos = repos.map do |repo|
+    @new_repos = []
+    repos.each do |repo|
       unless Repo.find_by_name(repo['name'])
         repository = Repo.new()
         repository.name = repo['name']
         repository.description = repo['description']
-        repository
+        @new_repos << repository
       end
     end
-    render my_first_repo
+    render 'my_first_repo'
   end
 
   def my_collaborations_index

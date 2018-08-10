@@ -33,7 +33,7 @@
 
     <!-- Search form -->
 
-  <%= link_to 'Add repositories', add_repos_path(repo_id: repo, user_id: collab.id), method: :post, :class => "btn btn-success" %>
+  <%= link_to 'Add repositories', add_repos_path, :class => "btn btn-success" %>
 
   <% @repos.each do |repo|%>
     <%= render 'components/repos_list', repo: repo %>
