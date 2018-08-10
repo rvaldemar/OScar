@@ -1,5 +1,36 @@
 <div class="wrapper-main">
   <%= render 'components/search-bar' %>
+  
+  <% if @repos.empty? %>
+    <div id="first-repo" >
+      <div class="first-repo-wraper">
+        <div class="form-group">
+          <h1>Share your first repository!</h1>
+        </div>
+        <div class="form-wrapper">
+          <form>
+            <% @new_repos.each do |repo| %>
+
+              <div class="repo">
+
+                <input type="checkbox" name='<%= repo.name %>' value="o que quero receber" class="form-check-input">
+                <label for="<%= repo.name %>"><%= repo.name %></label>
+
+                <p class="first-input-hiden"> Name:</p><input class="first-input-hiden form-control" type="text" name="name" value='<%= repo.name %>'><br>
+
+                <p class="first-input-hiden"> Description:</p><input class="first-input-hiden first-input-description form-control" type="text" name="description" value='<%= repo.description %>'><br>
+
+              </div>
+
+            <% end %>
+            <button type="submit" class="btn btn-primary">Share all selected</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  <% else %>
+
     <!-- Search form -->
 
   <%= link_to 'Add repositories', add_repos_path(repo_id: repo, user_id: collab.id), method: :post, :class => "btn btn-success" %>
@@ -8,3 +39,4 @@
     <%= render 'components/repos_list', repo: repo %>
   <% end %>
 </div>
+
