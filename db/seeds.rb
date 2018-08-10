@@ -13,7 +13,7 @@ puts 'deleted users'
 
 puts 'creating users'
 
-4.times do
+20.times do
   email = Faker::SiliconValley.email
   password = "123654"
   uid = Faker::Pokemon.name
@@ -29,9 +29,9 @@ Repo.destroy_all
 puts 'destroy old repos'
 
 puts 'creating new repos'
-10.times do
+40.times do
   name = Faker::SiliconValley.invention
-  description = Faker::Lorem.sentence
+  description = Faker::Lorem.paragraph(2, true, 6)
   user_id = rand(1..4)
   Repo.create(name: name, description: description, user_id: user_id)
 end
@@ -40,7 +40,7 @@ puts 'finished creating repos'
 Collaboration.destroy_all
 puts 'destroy old collabs'
 
-10.times do
+40.times do
   user_id = rand (1..4)
   repo_id = rand(1..10)
   accepted = 1

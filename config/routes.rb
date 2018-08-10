@@ -15,9 +15,10 @@ Rails.application.routes.draw do
   put '/repos/:id', to: 'user/repos#update'
   delete '/repos/:id', to: 'user/repos#destroy'
 
-  scope ':username' do
-    get 'my-repos', to: 'users/repos#my_repos_index', as: 'my_repos'
-    get 'my-collaborations', to: 'users/repos#my_collaborations_index', as: 'my_collaborations'
+  scope '/:username' do
+    get '/my-repos', to: 'users/repos#my_repos_index', as: 'my_repos'
+    get '/my-collaborations', to: 'users/repos#my_collaborations_index', as: 'my_collaborations'
+    post '/my-first-repo', to: 'users/repos#my_first_repo', as: 'my_first_repo'
   end
 
   # delete 'collaborations/:repo_id/:user_id', to: 'collaborations#destroy', as: 'end_collaboration'
