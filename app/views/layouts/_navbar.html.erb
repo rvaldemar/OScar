@@ -9,7 +9,7 @@
         <li><%= link_to( "sign in", user_github_omniauth_authorize_path) %></li>
       <% else %>
         <li><%= link_to( "my repositories", my_repos_path(current_user)) %></li>
-        <li><%= link_to( "my collaborations", user_github_omniauth_authorize_path) %></li>
+        <li><%= link_to( "my collaborations", my_collaborations_path(current_user)) %></li>
         <li><%= link_to( "sign out") %></li>
       <% end %>
     </ul>

@@ -1,0 +1,20 @@
+// form if empty
+
+.first-input-hiden {
+  display: none;
+}
+
+.input-show {
+  display: block;
+}
+
+
+.first-repo-wraper input[type=text] {
+  width: 700px;
+}
+
+.first-input-description {
+  word-wrap: break-word;
+  height: 100px;
+  vertical-align: top;
+}

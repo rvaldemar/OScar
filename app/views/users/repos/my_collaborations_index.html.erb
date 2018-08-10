@@ -1,0 +1,9 @@
+<div class="wrapper-main">
+    <!-- Search form -->
+  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+
+  <% @collabs.each do |collab|%>
+    <%= render 'components/repos_list', repo: collab.repo, collab: collab %>
+  <% end %>
+
+</div>
