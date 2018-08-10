@@ -2,8 +2,8 @@ require 'json'
 require 'open-uri'
 
 class User < ApplicationRecord
-  has_many :collaborations
-  has_many :repos, through: :collaborations
+  has_many :collaborations, dependent: :destroy
+  has_many :repos, through: :collaborations, dependent: :destroy
   # after_create :create_user_repos
 
   # Include default devise modules. Others available are:
