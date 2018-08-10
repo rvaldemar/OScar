@@ -1,8 +1,6 @@
+<%= render 'components/banner' %>
 <div class="wrapper-main">
   <%= render 'components/search-bar' %>
-    <!-- Search form -->
-
-  <%= link_to 'Add repositories', add_repos_path, :class => "btn btn-success" %>
 
   <% @repos.each do |repo|%>
     <%= render 'components/repos_list', repo: repo %>

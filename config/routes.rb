@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root to: 'repos#index'
 
+  get 'home-page', to: 'repos#home', as: 'home'
+
   resources :repos, only: [:show]
 
   post 'repos', to: 'users/repos#create', as: 'repos'

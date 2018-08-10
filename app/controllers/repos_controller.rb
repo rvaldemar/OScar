@@ -27,4 +27,8 @@ class ReposController < ApplicationController
     # Variable that saves only the users whose collaboration request has been approved
     @users = collabs.map(&:user)
   end
+
+  def home
+    @repos = Repo.all
+  end
 end
