@@ -18,15 +18,33 @@
   <%= render 'components/owner_card', repo: @repo %>
 
   <!-- Checks if current_user is owner or has any kind of collaboration (accepted or pending) -->
-  <% if current_user.id != @repo.user_id and !@users.include? current_user %>
-    <%= render 'components/join-card', users: @all_users, repo: @repo %>
-  <% end %>
+  <% if user_signed_in? %>
+    <% if current_user.id != @repo.user_id and !@users.include? current_user %>
+      <%= render 'components/join-card', users: @all_users, repo: @repo %>
+    <% end %>
 
-  <h4>Current collaborators for this repository:</h4>
+    <% if current_user.id == @repo.user_id and @all_collabs.where(accepted: false).length > 0 %>
+      <h4>Requests waiting to be processed</h4>
+      <% @pending_users.each do |user| %>
+        <%= render 'components/collab_list', collab: user, repo: @repo, pending: true %>
+      <% end %>
+    <% end %>
+  <% else %>
+
+    <%= render 'components/join-card', users: @all_users, repo: @repo %>
+
+  <% end %>
+  <br>
+
+  <% if @users.length > 0 %>
+    <h4>Current collaborators for this repository:</h4>
+  <% end %>
 
   <% @users.each do |user| %>
     <%= render 'components/collab_list', collab: user, repo: @repo %>
   <% end %>
+
+
 
 </div>
 
