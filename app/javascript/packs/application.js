@@ -2,7 +2,6 @@ import "bootstrap";
 
 import 'packs/addfirstrepo';
 
-import 'packs/destroy_repo';
 
 const newPostButton = document.getElementById("btn-new-post");
 const newPostCancelButton = document.getElementById("btn-new-post-cancel");
