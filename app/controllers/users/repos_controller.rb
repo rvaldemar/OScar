@@ -25,6 +25,21 @@ class Users::ReposController < ApplicationController
     end
   end
 
+  def add_repo
+    url = current_user.repos_url
+    repos_serialized = open(url + "?client_id=#{ENV['GITHUB_KEY']}&client_secret=#{ENV['GITHUB_SECRET']}").read
+    repos = JSON.parse(repos_serialized)
+
+    @new_repos = repos.map do |repo|
+      unless Repo.find_by_name(repo['name'])
+        repository = Repo.new()
+        repository.name = repo['name']
+        repository.description = repo['description']
+        repository
+      end
+    end
+    render my_first_repo
+  end
 
   def my_collaborations_index
     @collabs = current_user.collaborations
@@ -44,6 +59,8 @@ class Users::ReposController < ApplicationController
   end
 
   def destroy
+    Repo.find(params[:id]).destroy
+    redirect_to my_repos_path(current_user)
   end
 
   private

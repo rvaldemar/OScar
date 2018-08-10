@@ -30,7 +30,7 @@
         </div>
         <div>
           <% if current_user == repo.user %>
-           <button type="button" class="btn btn-outline-secondary btn-sm" id="btn-destroy-repo">Unshare</button>
+            <%= render 'components/popup_unshare', repo: repo, message: "Unshare" %>
           <% end %>
         </div>
       </div>
