@@ -4,9 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  # root to: 'repos#index'
+  root to: 'repos#home'
 
-  root to: 'repos#index'
-
+  get 'index', to: 'repos#index', as: 'index'
   get 'homepage', to: 'repos#home', as: 'homepage'
 
   resources :repos, only: [:show]

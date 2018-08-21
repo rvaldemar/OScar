@@ -1,15 +1,8 @@
 <div class="wrapper-main">
     <!-- Search form -->
   <%= render 'components/search-bar' %>
-
-  <% if @search_results
-    @collaborations.each do |collaboration| %>
-      <%= render 'components/results_list', collaboration: collaboration %>
-    <% end %>
-  <% else %>
     <% @repos.each do |repo|%>
       <%= render 'components/repos_list', repo: repo %>
     <% end %>
-  <% end %>
 
 </div>
