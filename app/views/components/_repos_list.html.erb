@@ -3,7 +3,7 @@
     <div class="panel-body">
       <div class="single-repo-wrapper">
         <div class="repo-left">
-          <div class="small-avatar" style="background-image: linear-gradient(-45deg, rgba(150,150,150,0.3) 0%, rgba(56,53,48,0.3) 33%, rgba(77,72,61,0.3) 51%, rgba(56,53,48,0.3) 93%, rgba(66,63,54,0.3) 100%), url(<%= asset_path('monkey_2.jpg')%>);">
+          <div class="small-avatar" style="background-image: linear-gradient(-45deg, rgba(150,150,150,0.3) 0%, rgba(56,53,48,0.3) 33%, rgba(77,72,61,0.3) 51%, rgba(56,53,48,0.3) 93%, rgba(66,63,54,0.3) 100%), url(<%= repo.user.avatar.nil? ? asset_path('default_user.png') : repo.user.avatar %>);">
           </div>
         </div>
         <div class="repo-info">
@@ -23,10 +23,10 @@
             <ul class="collaborators-inline-list">
               <li><strong>Collaborators: </strong></li>
 
-              <% repo.collaborations.each_with_index do |collaboration, index| %>
-                <% if index ==  repo.collaborations.length - 2 %>
+              <% repo.collaborations.where(accepted: true).each_with_index do |collaboration, index| %>
+                <% if index ==  repo.collaborations.where(accepted: true).length - 2 %>
                   <li><%=collaboration.user.name %> and </li>
-                <% elsif index == repo.collaborations.length - 1 %>
+                <% elsif index == repo.collaborations.where(accepted: true).length - 1 %>
                   <li><%=collaboration.user.name %>. </li>
                 <% else %>
                   <li><%=collaboration.user.name %>, </li>

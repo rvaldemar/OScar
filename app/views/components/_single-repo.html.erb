@@ -28,11 +28,6 @@
             <li>Collaborators</li>
           </ul>
         </div>
-        <div>
-          <% if current_user == repo.user %>
-            <%= render 'components/popup_unshare', repo: repo, message: "Unshare" %>
-          <% end %>
-        </div>
       </div>
     </div>
   </div>

@@ -3,7 +3,7 @@
     <div class="panel-body">
       <div class="collaborators-wrapper">
         <div class="collaborators-left">
-          <div class="small-avatar" style="background-image: linear-gradient(-45deg, rgba(150,150,150,0.3) 0%, rgba(56,53,48,0.3) 33%, rgba(77,72,61,0.3) 51%, rgba(56,53,48,0.3) 93%, rgba(66,63,54,0.3) 100%), url(<%= asset_path('monkey_1.jpg')%>);">
+          <div class="small-avatar" style="background-image: linear-gradient(-45deg, rgba(150,150,150,0.3) 0%, rgba(56,53,48,0.3) 33%, rgba(77,72,61,0.3) 51%, rgba(56,53,48,0.3) 93%, rgba(66,63,54,0.3) 100%), url(<%= collab.avatar.nil? ? asset_path('default_user.png') : collab.avatar %>);">
           </div>
         </div>
         <div class="collaborators-info">
@@ -16,11 +16,10 @@
         </div>
 
         <div class="collaborators-right">
-
           <!-- Allows that a user can leave a repo -->
           <% if collab == current_user %>
             <div class="collaborators-leave">
-              <%= render 'components/popup', repo_id: repo, message: "Leave Collaboration" %>
+              <%= render 'components/popup', repo_id: @repo, message: "Leave Collaboration" %>
             </div>
           <% end %>
 
