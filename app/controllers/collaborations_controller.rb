@@ -1,3 +1,5 @@
+require 'rest-client'
+
 class CollaborationsController < ApplicationController
   def create
     collaboration = Collaboration.new(collaboration_params)
@@ -14,7 +16,13 @@ class CollaborationsController < ApplicationController
   def update
     collaboration = Collaboration.find_by(collaboration_params)
     collaboration.accepted = true
-
+    url = "https://api.github.com/repos/#{collaboration.repo.user.nickname}/#{collaboration.repo.name}/collaborators/#{collaboration.user.nickname}"
+    invitation = RestClient::Request.execute(method: 'put', url: url,
+                                headers: { :Authorization => "Bearer #{collaboration.repo.user.token}"})
+    parsed = JSON.parse(invitation)
+    invitation_id = parsed["id"]
+    RestClient::Request.execute(method: 'patch', url: "https://api.github.com/user/repository_invitations/#{invitation_id}",
+                                headers: { :Authorization => "Bearer #{collaboration.user.token}" })
     if collaboration.save
       redirect_to repo_path(params[:repo_id])
     else
